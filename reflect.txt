@@ -1,0 +1,38 @@
+This Milestone was fairly challenging specially when iterating over the documents.
+
+I will begin with an explanation of each module starting with 
+
+Utilities - This module provides a way to get or extract the necessary values and data that we needed.
+
+std::string Utilities::extractToken(const std::string& source, size_t& next_pos, bool& more)
+By taking into account delimiters and eliminating any leading or trailing spaces, this function enables us to extract characters (substrings) from the original string. The location in the source string is tracked using the next_pos parameter, which is also used to signal whether there are still tokens to be extracted. This module makes it simple to pass incoming data, handle delimiters, and effectively extract the necessary data.
+
+Station - This module provides the necessary data to represent each station.
+
+Station::Station(const std::string& record)
+The code in this module allows us to get the name of the current active station. It also makes use of the Utilities module to extract the necessary string. The Station class efficiently manages the state of each station, making it easy to associate customer orders with stations and track the progress of the production line.
+
+CustomerOrder - This module is designed to take and sort the orders into the given field.
+
+CustomerOrder& operator=(const CustomerOrder& src) = delete;
+We have purposely disabled the copy constructor to prevent copying and deleting orders. This ensures that the list of objects in CustomerOrder is not altered. Instead, we use a move constructor and move assignment operator to maintain the proper resources and provide an empty resource available for assignment.
+
+Workstation - This module primarily works as a way to pair the Station and CustomerOrder modules and assign them to the proper stations with matching orders. Here, we use two distinct functions and member functions from the standard library.
+
+First, we use bool Workstation::attemptToMoveOrder() to determine if it is possible to move the data. If not, then we would declare whether the order has been filled, completed, or if it was incomplete.
+
+Then, the emplace_back function was used to place the item at the very end of the list and use the move constructor to properly assign the right order to an empty station.
+
+LineManager - This module primarily focuses on Workstations. It ensures which station is the active or current station and which one is the next station in the production line.
+
+Vectors were essential containers in the milestone as they ensured that resources were dynamically allocated properly and had no linkage with any other item on the list. We couldn't use std::list because a list ensures that each item is linked together, but in this case, we need to traverse through the entire list independently.
+
+We needed to use deque in:
+
+deque<CustomerOrder> g_pending{};
+deque<CustomerOrder> g_completed{};
+deque<CustomerOrder> g_incomplete{};
+
+This ensured that we could delete or insert elements properly, regardless of the position of the element. We couldn't use queue because it operates as a first-in-first-out structure, and we needed more flexibility to manipulate elements in the deques.
+
+In summary, the proper use of each module, along with the appropriate choice of container classes like vectors and deques, contributes to a well-organized and efficient system for managing a production line. By carefully designing and integrating the modules, the code becomes more maintainable, readable, and organized, and it can handle complex production scenarios effectively.

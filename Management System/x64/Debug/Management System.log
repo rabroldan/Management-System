@@ -1,0 +1,11 @@
+﻿  CustomerOrder.cpp
+  LineManager.cpp
+C:\Users\rrold\Desktop\ms3\Management System\LineManager.cpp(83,41): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\rrold\Desktop\ms3\Management System\LineManager.cpp(137,41): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Station.cpp
+  Utilities.cpp
+C:\Users\rrold\Desktop\ms3\Management System\Utilities.cpp(59,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Workstation.cpp
+  ms3.cpp
+  Generating Code...
+  Management System.vcxproj -> C:\Users\rrold\Desktop\ms3\Management System\x64\Debug\Management System.exe

@@ -1,0 +1,4 @@
+TERMINAL
+
+g++ -Wall -std=c++17 -g -o ws ms3.cpp Station.cpp Utilities.cpp CustomerOrder.cpp LineManager.cpp Workstation.cpp ms1.cpp Station.cpp Utilities.cpp
+./ws Stations1.txt Stations2.txt CustomerOrders.txt AssemblyLine.txt

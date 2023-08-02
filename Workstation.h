@@ -1,0 +1,45 @@
+/*
+*****************************************************************************
+
+Full Name  : Ronald Roldan
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+*/
+
+#ifndef SDDS_WORKSTATION_H
+#define SDDS_WORKSTATION_H
+
+#include <deque>
+#include <iostream>
+#include "CustomerOrder.h"
+#include "Station.h"
+
+using namespace std;
+
+extern deque<sdds::CustomerOrder> g_pending;
+extern deque<sdds::CustomerOrder> g_completed;
+extern deque<sdds::CustomerOrder> g_incomplete;
+
+namespace sdds {
+
+    class Workstation : public Station {
+        deque<CustomerOrder> m_orders;
+        Workstation* m_pNextStation = nullptr;
+
+    public:
+        Workstation(std::string str) : Station(str) {}        
+        void fill(ostream& os);
+        bool attemptToMoveOrder();
+        void setNextStation(Workstation* station = nullptr);
+        Workstation* getNextStation() const;
+        void display(ostream& os) const;
+        Workstation& operator+=(CustomerOrder&& newOrder);
+        bool empty() const;
+    };
+};
+
+#endif
