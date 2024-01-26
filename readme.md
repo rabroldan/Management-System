@@ -1,8 +1,8 @@
-**Project Overview:**
+# **Project Overview:**
 
 The project involves the creation of an assembly line system with distinct workstations, each equipped with specific stock items. The workflow is overseen by a line manager who guides customer orders through the line, ensuring completion at each station. The project is organized into three milestones, with a focus on different modules.
 
-**Utilities and Station Classes Module:**
+## **Utilities and Station Classes Module:**
 
 *Utilities Module:*
 - Parse input files into tokens using the Utilities class.
@@ -20,7 +20,7 @@ The project involves the creation of an assembly line system with distinct works
 - Define a custom constructor, destructor, and display function.
 - Prevent copy operations and use move semantics.
 
-**Workstation and LineManager Modules:**
+## **Workstation and LineManager Modules:**
 
 *Workstation Module:*
 - Define the Workstation class as an active station on the assembly line.
